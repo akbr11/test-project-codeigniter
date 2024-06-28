@@ -17,3 +17,6 @@ $routes->post('/proses_edit_user/(:segment)', 'UserController::proses_edit_user/
 $routes->get('/delete_user/(:segment)', 'UserController::delete_user/$1');
 $routes->post('datatable_user', 'UserController::datatable_user');
 $routes->get('/dashboard-user', 'UserController::index');
+
+$routes->get('/pegawai', 'PegawaiController::index');
+$routes->post('/proses_edit_pegawai/(:segment)', 'PegawaiController::proses_edit_pegawai/$1');

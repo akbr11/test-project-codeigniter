@@ -13,7 +13,7 @@
     <div class="row">
       <div class="col-md-12">
         <div class="mb-3">
-          <label for="dokumen" class="form-label">Foto Profil</label>
+          <label for="fotoProfil" class="form-label">Foto Profil</label>
           <?php if (!empty($user->fotoProfil)) : ?>
             <div class="mb-3">
               <img src="<?= base_url('') ?>" alt="Foto Profil" style="width: 50px; height: 50px;">

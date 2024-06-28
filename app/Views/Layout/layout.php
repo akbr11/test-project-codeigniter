@@ -31,14 +31,25 @@
           <a href="#" class="text-capitalize">test project</a>
         </div>
       </div>
-      <ul class="sidebar-nav">
-        <li class="sidebar-item">
-          <a href="#" class="sidebar-link active">
-            <i class="lni lni-user"></i>
-            <span>Data User</span>
-          </a>
-        </li>
-      </ul>
+      <?php if (session()->get('role') == 'Admin') { ?>
+        <ul class="sidebar-nav">
+          <li class="sidebar-item">
+            <a href="#" class="sidebar-link <?= isset($uri) && $uri->getSegment(1) == 'dashboard-user' ? 'active' : '' ?>">
+              <i class="lni lni-user"></i>
+              <span>Data User</span>
+            </a>
+          </li>
+        </ul>
+      <?php } else { ?>
+        <ul class="sidebar-nav">
+          <li class="sidebar-item">
+            <a href="#" class="sidebar-link <?= isset($uri) && $uri->getSegment(1) == 'pegawai' ? 'active' : '' ?>">
+              <i class="lni lni-user"></i>
+              <span>Profil Pegawai</span>
+            </a>
+          </li>
+        </ul>
+      <?php } ?>
     </aside>
     <div class="main">
       <nav class="navbar navbar-expand px-3 py-3">

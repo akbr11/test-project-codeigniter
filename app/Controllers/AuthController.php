@@ -51,16 +51,22 @@ class AuthController extends BaseController
                 return redirect()->to('/');
             }
             session()->set([
-                'id' => $search_email[0]->idUser,
+                'idUser' => $search_email[0]->idUser,
+                'namaLengkap' => $search_email[0]->namaLengkap,
                 'email' => $search_email[0]->email,
                 'password' => $search_email[0]->password,
                 'role' => $search_email[0]->role,
+                'fotoProfil' => $search_email[0]->fotoProfil,
                 'statusAkun' => $search_email[0]->statusAkun,
                 'logged_in' => true
             ]);
-            return redirect()->to('/dashboard-user');
+            if (session()->get('role') == 'Admin') {
+                return redirect()->to('/dashboard-user');
+            } else if (session()->get('role') == 'Pegawai') {
+                return redirect()->to('/pegawai');
+            }
         } catch (\Throwable $th) {
-            session()->setFlashdata('msg_error', 'Terjadi kendala pada server');
+            session()->setFlashdata('msg_error', 'Terjadi kendala saat parsing data.');
             return redirect()->to('/');
         }
     }

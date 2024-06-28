@@ -10,12 +10,12 @@ class UserController extends BaseController
 {
     public function index()
     {
-        if (session()->get('logged_in') != true) {
+        if (session()->get('logged_in') != true && session()->get('role') != 'Admin') {
             session()->setFlashdata('msg_error', 'Silahkan login terlebih dahulu');
             return redirect()->to('/');
         }
         $data['uri'] = \current_url(true);
-        return view("User/user");
+        return view("User/user", $data);
     }
 
     function datatable_user()
@@ -47,7 +47,7 @@ class UserController extends BaseController
             return redirect()->to('/');
         }
         $data['uri'] = \current_url(true);
-        return view("User/tambah_user");
+        return view("User/tambah_user", $data);
     }
 
     public function proses_tambah_user()
@@ -202,8 +202,8 @@ class UserController extends BaseController
             session()->setFlashdata('msg_error', 'Silahkan login terlebih dahulu');
             return redirect()->to('/');
         }
-        $data['uri'] = \current_url(true);
         $um = new UserModel();
+        $data['uri'] = \current_url(true);
         $data['user'] = $um->find($idUser);
         return view("User/detail_user", $data);
     }

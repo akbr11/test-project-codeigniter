@@ -123,7 +123,7 @@
             throw new Error(verificationResult.message);
           }
           Swal.fire("Berhasil!", verificationResult.message, "success");
-          $('.datatables-keuangan').DataTable().ajax.reload();
+          $('.datatables-pegawai').DataTable().ajax.reload();
         } catch (error) {
           Swal.showValidationMessage(error.message);
         }
