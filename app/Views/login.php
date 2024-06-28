@@ -77,10 +77,7 @@
                 <h4 class="mb-1">Selamat Datang</h4>
                 <p>Silahkan isi email dan kata sandi untuk melanjutkan</p>
               </div>
-              <?php
-              // $validation = \Config\Services::validation();
-              if (session()->getFlashdata('msg_error')) :
-              ?>
+              <?php if (session()->getFlashdata('msg_error')) : ?>
                 <div class="alert alert-danger p-1 rounded-4 d-flex align-items-center gap-2">
                   <i class="lni lni-warning"></i> <?= session()->getFlashdata('msg_error') ?>
                 </div>

@@ -116,6 +116,11 @@ a.sidebar-link:hover {
   border-left: 3px solid #3b7ddd;
 }
 
+.active {
+  background-color: rgba(255, 255, 255, 0.075);
+  border-left: 3px solid #3b7ddd;
+}
+
 .sidebar-item {
   position: relative;
 }
@@ -204,4 +209,14 @@ a.sidebar-link:hover {
       opacity: 1;
     }
   }
+}
+
+.btn-blue {
+  background-color: #01042f;
+  color: #fff;
+}
+
+.btn-blue:hover {
+  background-color: #01042f;
+  color: #fff;
 }
